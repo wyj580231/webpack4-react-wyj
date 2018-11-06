@@ -9,11 +9,13 @@
     "start*": "npm run dll && npm run start",
     "build": "webpack --progress   --mode=production",
     "start": "webpack-dev-server  --colors --progress --display-error-details --open --mode=development",
-    "dll": "webpack  --mode=production  --progress  --config webpack.dll.config.js"
+    "dll": "webpack  --mode=production  --progress  --config webpack.dll.config.js",
+    "lint": "eslint --ext .js src"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.1.0",
     "autoprefixer": "^9.3.1",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-import": "^1.10.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -21,6 +23,13 @@
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.4",
     "css-loader": "^1.0.0",
+    "eslint": "^5.8.0",
+    "eslint-config-umi": "^1.2.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "happypack": "^5.0.0",

@@ -1,0 +1,10 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint-config-umi",
+  "globals": {
+    "React": true,
+    "PropTypes": true,
+    "$": true
+  },
+  "rules": { "jsx-a11y/href-no-hash": "off" }
+}
