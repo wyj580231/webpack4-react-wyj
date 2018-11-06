@@ -30,7 +30,7 @@ react集成webpack4和antd(按需加载,支持配置主题)
 └── webpack.dll.config.js           dll分离公共库
 </code></pre>
 
-##已经支持的功能
+## 已经支持的功能
 <ul>
 <li>编译速度快（使用 happypack 插件实现多线程执行任务）</li>
 <li>增加 dll 加快打包速度</li>
@@ -41,13 +41,13 @@ react集成webpack4和antd(按需加载,支持配置主题)
 <li>css moduls写法</li>
 <li>配置开发环境代理请求,解决开发环境跨域问题(生产环境可配置nignx代理)</li>
 </ul>
-##后续加入
+## 后续加入
 <ul>
 <li>单元测试</li>
 <li>eslint</li>
 <li>react-redux实例</li>
 </ul>
-##运行方法
+## 运行方法
 <ul>
 <li>yarn(推荐)或者npm i 安装依赖</li>
 <li>npm run dll 公共包第一次生成，后续都不需要重新生成，加快打包速度</li>
