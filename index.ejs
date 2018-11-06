@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if IE 9]>          <html lang="zh" class="ie9 no-js">   <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="zh" class="no-js">
+<!--<![endif]-->
+
+<head>
+  <title>wyj</title>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+  <meta name="full-screen" content="yes">
+  <meta name="format-detection" content="telephone=no;address=no;email=no;">
+  <meta http-equiv="cleartype" content="on">
+  <!--[if IE 9]>
+  <script type="text/javascript" src="/static/ie9.js"></script>
+  <![endif]-->
+  <%if(htmlWebpackPlugin.options.dllCSS){%>
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.dllCSS %>">
+  <%}%>
+  <% for (var i in htmlWebpackPlugin.files.css) { %>
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[i] %>">
+  <% } %>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="<%= htmlWebpackPlugin.options.dllJS %>"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <% } %>
+</body>
+
+</html>

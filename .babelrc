@@ -1,0 +1,22 @@
+{
+  "presets": [
+    "@babel/react",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "30",
+          "ie": "9"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "babel-plugin-syntax-dynamic-import",
+    "transform-class-properties",
+    [
+      "import",
+      { "libraryName": "antd", "libraryDirectory": "es", "style": true }
+    ]
+  ]
+}
