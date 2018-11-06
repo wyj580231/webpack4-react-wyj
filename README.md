@@ -1,6 +1,6 @@
 # webpack4-react-wyj
 react集成webpack4和antd(按需加载,支持配置主题)
-## 一直使用蚂蚁金服的dva和umi框架,加深对webpack和使用和理解,使用webpack4和最新支持的一些特性配置.路由支持按需加载或按模块加载,支持热更新,ui框架是 antd,支持按需加载组件.
+## 一直使用蚂蚁金服的dva和umi框架,加深对webpack和使用和理解.开始在网上找了很多例子,都有bug,遂自己实现,使用webpack4和最新支持的一些特性配置.路由支持按需加载或按模块加载,支持热更新,ui框架是 antd,支持按需加载组件.
 使用 webpack4.xx，区分开发环境和生产环境，打包性能优化。建议使用yarn安装依赖
 ## 文件目录
 <pre><code>
@@ -47,7 +47,7 @@ react集成webpack4和antd(按需加载,支持配置主题)
 <li>eslint</li>
 <li>react-redux实例</li>
 </ul>
-## 运行方法
+## 启动方法
 <ul>
 <li>yarn(推荐)或者npm i 安装依赖</li>
 <li>npm run dll 公共包第一次生成，后续都不需要重新生成，加快打包速度</li>
