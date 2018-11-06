@@ -13,7 +13,7 @@ const publicPath = "/";
 module.exports = (env, argv) => {
   const isDev = argv.mode === "development";
   return {
-    entry: { app: "./src/index.js" },
+    entry: ["@babel/polyfill", "./src/index.js"],
     output: {
       filename: isDev ? "[name].js" : "[name].[hash:8].js",
       chunkFilename: "[name].[chunkhash:8].chunk.js",

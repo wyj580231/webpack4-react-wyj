@@ -16,8 +16,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "./public/dll"),
-    filename: "dll.[name].[chunkhash].js",
-    library: "dll_[name]_[chunkhash]"
+    filename: "dll.[chunkhash].js",
+    library: "dll_[chunkhash]"
   },
   module: {
     rules: [
@@ -76,7 +76,7 @@ module.exports = {
   plugins: [
     new webpack.DllPlugin({
       path: path.resolve(__dirname, "./public/dll", "manifest.dll.json"),
-      name: "dll_[name]_[chunkhash]",
+      name: "dll_[chunkhash]",
       context: __dirname
     }),
     new ExtractTextPlugin({
