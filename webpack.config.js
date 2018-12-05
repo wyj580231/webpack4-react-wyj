@@ -25,9 +25,9 @@ module.exports = (env, argv) => {
       //自动补全后缀
       extensions: [".js", ".scss", ".css"],
       alias: {
-        "@request": "./src/utils/request.js",
-        utils: "./src/utils",
-        components: "./src/components"
+        "@request": path.resolve(__dirname, "./src/utils/request.js"),
+        utils: path.resolve(__dirname, "./src/utils"),
+        components: path.resolve(__dirname, "./src/components")
       }
     },
     // 开发服务器
