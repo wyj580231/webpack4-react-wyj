@@ -5,7 +5,7 @@ export default connect(({ toDoList }) => ({ toDoList }))(
     return (
       <div>
         {list
-          .filter(v => !v.comoleted)
+          .filter(v => !v.completed)
           .map(v => (
             <Row key={v.name}>
               <Col span={14} title={v.text}>
