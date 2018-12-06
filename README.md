@@ -40,12 +40,13 @@ react集成webpack4和antd(按需加载,支持配置主题)
 <li>支持sass</li>
 <li>css moduls写法</li>
 <li>配置开发环境代理请求,解决开发环境跨域问题(生产环境可配置nignx代理)</li>
-  <li>eslint支持 使用umi的eslint配置 yarn run lint使用</li>
+<li>eslint支持 使用umi的eslint配置 yarn run lint使用</li>
+<li>加入react-redux 的实例todolist</li>
 </ul>
 ## 后续加入
 <ul>
 <li>单元测试</li>
-<li>react-redux实例</li>
+<li>redux-saga实例</li>
 </ul>
 ## 启动方法
 <ul>
