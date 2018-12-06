@@ -25,7 +25,7 @@ export default connect(({ toDoList }) => ({ toDoList }))(
             const text = values.text,
               time = values.time.format("YYYY-MM-DD HH:mm:ss");
             list.push({ text, time, completed: false });
-            dispatch({ type: "SAVE", payload: { list } });
+            dispatch({ type: "toDoList/save", payload: { list } });
             resetFields();
           }
         });

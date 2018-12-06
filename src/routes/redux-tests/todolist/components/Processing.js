@@ -13,7 +13,7 @@ export default connect(({ toDoList }) => ({ toDoList }))(
                   checked={v.completed}
                   onChange={() => {
                     v.completed = !v.completed;
-                    dispatch({ type: "SAVE", payload: { list } });
+                    dispatch({ type: "toDoList/save", payload: { list } });
                   }}
                 >
                   {v.text}
@@ -25,7 +25,7 @@ export default connect(({ toDoList }) => ({ toDoList }))(
                   type="close"
                   onClick={() => {
                     list = list.filter(v1 => v1.text !== v.text);
-                    dispatch({ type: "SAVE", payload: { list } });
+                    dispatch({ type: "toDoList/save", payload: { list } });
                   }}
                 />
               </Col>
