@@ -204,7 +204,8 @@ module.exports = (env, argv) => {
         jQuery: "jquery",
         "window.jQuery": "jquery",
         React: "react",
-        PropTypes: "prop-types"
+        PropTypes: "prop-types",
+        classnames: "classnames"
       }),
       new webpack.DllReferencePlugin({
         context: __dirname,

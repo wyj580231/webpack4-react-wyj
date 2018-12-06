@@ -1,11 +1,16 @@
 import styles from "./Top.scss";
 import { NavLink } from "react-router-dom";
 import { Menu } from "antd";
+import { withRouter } from "react-router-dom";
 const SubMenu = Menu.SubMenu;
-export default class extends React.Component {
-  state = {
-    current: "home"
-  };
+class Top extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: props.history.location.pathname
+    };
+  }
+
   render() {
     let { current } = this.state;
     return (
@@ -19,17 +24,17 @@ export default class extends React.Component {
             })
           }
         >
-          <Menu.Item key="home">
+          <Menu.Item key="/">
             <NavLink to="/">Home</NavLink>
           </Menu.Item>
-          <Menu.Item key="404">
+          <Menu.Item key="/404">
             <NavLink to="/404">404</NavLink>
           </Menu.Item>
           <SubMenu title={<span>redux</span>}>
-            <Menu.Item key="reduxtest">
-              <NavLink to="/redux/test">test</NavLink>
+            <Menu.Item key="/redux/todolist">
+              <NavLink to="/redux/todolist">todolist</NavLink>
             </Menu.Item>
-            <Menu.Item key="reduxsaga">
+            <Menu.Item key="/redux/saga">
               <NavLink to="/redux/saga">saga</NavLink>
             </Menu.Item>
           </SubMenu>
@@ -38,3 +43,4 @@ export default class extends React.Component {
     );
   }
 }
+export default withRouter(Top);
