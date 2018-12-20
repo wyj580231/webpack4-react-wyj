@@ -12,6 +12,10 @@ export default {
   reducers: {
     save(state, { payload }) {
       return { ...state, ...payload };
+    },
+    test(state){
+      console.log("test")
+      return {...state};
     }
   }
 };

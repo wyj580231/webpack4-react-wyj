@@ -12,6 +12,7 @@ const manifest = require("./public/dll/manifest.dll.json");
 const publicPath = "/";
 module.exports = (env, argv) => {
   const isDev = argv.mode === "development";
+  const dllPath = isDev ? "./public/dev-dll" : "./public/dll";
   return {
     entry: ["@babel/polyfill", "./src/index.js"],
     output: {
@@ -193,9 +194,15 @@ module.exports = (env, argv) => {
         template: path.resolve(__dirname, "index.ejs"),
         inject: false,
         hash: false,
-        dllJS: publicPath + `dll/${manifest.name.replace(/_/g, ".")}.js`,
+        dllJS:
+          publicPath +
+          `${isDev ? "dev-dll" : "dll"}/${manifest.name.replace(/_/g, ".")}.js`,
         dllCSS: /\.css/g.test(JSON.stringify(manifest))
-          ? publicPath + `dll/${manifest.name.replace(/_/g, ".")}.css`
+          ? publicPath +
+            `${isDev ? "dev-dll" : "dll"}/${manifest.name.replace(
+              /_/g,
+              "."
+            )}.css`
           : false
       }),
       // 定义全局变量React指向react库就不用每次import react
@@ -209,7 +216,7 @@ module.exports = (env, argv) => {
       }),
       new webpack.DllReferencePlugin({
         context: __dirname,
-        manifest: require("./public/dll/manifest.dll.json")
+        manifest: require(dllPath + "/manifest.dll.json")
       }),
       // css变化时不会影响js的hash，参看hash,chunkhash,contenthash的区别
       new WebpackMd5Hash(),

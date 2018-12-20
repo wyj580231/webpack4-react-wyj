@@ -7,7 +7,7 @@ export default connect(({ toDoList }) => ({ toDoList }))(
         {list
           .filter(v => !v.completed)
           .map(v => (
-            <Row key={v.name}>
+            <Row key={v.text}>
               <Col span={14} title={v.text}>
                 <Checkbox
                   checked={v.completed}

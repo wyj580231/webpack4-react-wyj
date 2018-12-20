@@ -33,7 +33,7 @@ react集成webpack4和antd(按需加载,支持配置主题)
 ## 已经支持的功能
 <ul>
 <li>编译速度快（使用 happypack 插件实现多线程执行任务）</li>
-<li>增加 dll 加快打包速度</li>
+<li>增加 dll 加快打包速度,区分生产和开发环境dll,更详细的报错信息</li>
 <li>按需加载(使用react-loadable实现)</li>
 <li>集成antd并使用babel-plugin-import实现按需加载(支持在webpack里配置less变量主题)</li>
 <li>js和css自动添加hash(根据文件内容生成)</li>

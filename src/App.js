@@ -3,10 +3,21 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
 import loading from "./routes/Loading";
 import Layout from "./layouts/index";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import createSagaMiddleware, { delay }  from "redux-saga";
 import appReducer from "./redux/reducers/index";
-const store = createStore(appReducer);
+import { takeEvery, put } from "redux-saga/effects";
+function* test() {
+  yield delay(1000)
+  yield put({ type: "toDoList/test" });
+}
+function* helloSaga() {
+  yield takeEvery("toDoList/save", test);
+}
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(helloSaga);
 const IndexPage = Loadable({
   loading,
   loader: () => import("./routes/IndexPage")
