@@ -8,11 +8,11 @@ const WebpackMd5Hash = require("webpack-md5-hash");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const manifest = require("./public/dll/manifest.dll.json");
 const publicPath = "/";
 module.exports = (env, argv) => {
   const isDev = argv.mode === "development";
   const dllPath = isDev ? "./public/dev-dll" : "./public/dll";
+  const manifest = require(dllPath + "/manifest.dll.json");
   return {
     entry: ["@babel/polyfill", "./src/index.js"],
     output: {
@@ -28,7 +28,8 @@ module.exports = (env, argv) => {
       alias: {
         "@request": path.resolve(__dirname, "./src/utils/request.js"),
         utils: path.resolve(__dirname, "./src/utils"),
-        components: path.resolve(__dirname, "./src/components")
+        components: path.resolve(__dirname, "./src/components"),
+        models: path.resolve(__dirname, "./src/models")
       }
     },
     // 开发服务器

@@ -5,19 +5,11 @@ import loading from "./routes/Loading";
 import Layout from "./layouts/index";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import createSagaMiddleware, { delay }  from "redux-saga";
-import appReducer from "./redux/reducers/index";
-import { takeEvery, put } from "redux-saga/effects";
-function* test() {
-  yield delay(1000)
-  yield put({ type: "toDoList/test" });
-}
-function* helloSaga() {
-  yield takeEvery("toDoList/save", test);
-}
+import createSagaMiddleware from "redux-saga";
+import appReducer,{rootSaga} from "./redux/reducers/index";
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(rootSaga);
 const IndexPage = Loadable({
   loading,
   loader: () => import("./routes/IndexPage")

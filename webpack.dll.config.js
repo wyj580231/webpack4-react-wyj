@@ -4,6 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin"); //清空
 module.exports = (env, argv) => {
   const isDev = argv.mode === "development";
+  console.log(isDev)
   const dllPath = isDev ? "./public/dev-dll" : "./public/dll";
   return {
     entry: {

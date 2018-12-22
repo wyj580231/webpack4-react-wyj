@@ -1,3 +1,4 @@
+import createSagaMiddleware, { delay } from "redux-saga";
 export default {
   namespace: "toDoList",
   state: {
@@ -9,13 +10,16 @@ export default {
       { text: "test5", time: "2018-12-10 09:39:17", completed: false }
     ]
   },
+  effects: {
+    *test1({ payload },a) {
+      console.log(a)
+      yield delay(2000);
+      console.log(payload);
+    }
+  },
   reducers: {
     save(state, { payload }) {
       return { ...state, ...payload };
-    },
-    test(state){
-      console.log("test")
-      return {...state};
     }
   }
 };
