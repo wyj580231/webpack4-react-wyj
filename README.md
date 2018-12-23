@@ -43,11 +43,13 @@ react集成webpack4和antd(按需加载,支持配置主题)
 <li>eslint支持 使用umi的eslint配置 yarn run lint使用</li>
 <li>加入react-redux 的实例todolist</li>
 <li>支持装饰器写法(固定babel-eslint版本在8.2.6,向后不支持直接在export default上面写装饰器)</li>
+<li>加入webpack.config.js文件的热更新</li>
+<li>初步封装redux-saga,并加入示例</li>
 </ul>
 ## 后续加入
 <ul>
 <li>单元测试</li>
-<li>redux-saga实例</li>
+<li>redux-saga深入封装(按需载入和为每个组件注入history对象)</li>
 </ul>
 ## 启动方法
 <ul>

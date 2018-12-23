@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start*": "npm run dll && npm start",
     "build": "webpack  --mode=production  --progress  --config webpack.dll.config.js&&webpack --progress   --mode=production",
-    "start": "webpack-dev-server  --colors --progress --display-error-details --open --mode=development",
+    "start": "nodemon --watch webpack.config.js --exec webpack-dev-server  --colors --progress --display-error-details --open --mode=development",
     "dll": "webpack  --mode=development  --progress  --config webpack.dll.config.js",
     "lint": "eslint --ext .js src"
   },
@@ -38,6 +38,7 @@
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "node-sass": "^4.9.4",
+    "nodemon": "^1.18.9",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
     "sass-loader": "^7.1.0",

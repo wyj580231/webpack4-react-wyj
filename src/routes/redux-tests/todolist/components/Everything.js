@@ -12,7 +12,6 @@ export default connect(({ toDoList }) => ({ toDoList }))(
                 onChange={() => {
                   v.completed = !v.completed;
                   dispatch({ type: "toDoList/save", payload: { list } });
-                  dispatch({ type: "toDoList/test1", payload: { a: 1 } });
                 }}
               >
                 {v.text}

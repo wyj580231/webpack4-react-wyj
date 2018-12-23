@@ -43,6 +43,7 @@ module.exports = (env, argv) => {
       open: true, // 自动打开浏览器
       hot: true, //热更新
       inline: true,
+      disableHostCheck: true, //解决 Invalid Host/Origin header
       proxy: {
         //通过代理解决本地跨域
         "/api": {
