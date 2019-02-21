@@ -101,6 +101,7 @@ module.exports = (env, argv) => {
         {
           test: /\.jsx?$/,
           exclude: /(node_modules|bower_components)/,
+          include: path.resolve(process.cwd(), "./src"),
           use: ["happypack/loader?id=js"]
         },
         {
