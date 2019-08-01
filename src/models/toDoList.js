@@ -17,6 +17,7 @@ export default {
       yield delay(2000);
       list.push(payload.item);
       yield put({ type: "toDoList/save", payload: { list } });
+      return "sagareturnvalue";
     }
   },
   reducers: {

@@ -3,21 +3,30 @@ export default function(models) {
   let allSaga = [];
   for (let model of models) {
     for (let sagaName in model.effects) {
-      model.reducers[sagaName] = state => {
-        return state;
-      };
-      allSaga.push({
-        name: sagaName,
-        model
-      });
+      if (model.effects.hasOwnProperty(sagaName)) {
+        allSaga.push({
+          name: sagaName,
+          model
+        });
+      }
     }
   }
-  return function*() {
+  function* rootSaga() {
     for (let saga of allSaga) {
       yield sagaMethods.takeEvery(
         saga.model.namespace + "/" + saga.name,
-        saga.model.effects[saga.name].bind(null,{...sagaMethods})
+        function*(action) {
+          const dispatchPromiseResolve =
+            action[Symbol.for("dispatchPromiseResolve")];
+          const res = yield sagaMethods.call(
+            saga.model.effects[saga.name],
+            sagaMethods,
+            action
+          );
+          yield dispatchPromiseResolve(res);
+        }
       );
     }
-  };
+  }
+  return { rootSaga, allSaga };
 }

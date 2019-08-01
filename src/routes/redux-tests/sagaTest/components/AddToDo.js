@@ -31,7 +31,11 @@ export default connect(({ toDoList }) => ({ toDoList }))(
             dispatch({
               type: "toDoList/sagaTest",
               payload: { item: { text, time, completed: false } }
-            });
+            }).then(value =>
+              console.log(
+                "convert dispatch effect return promise,return value: " + value
+              )
+            );
             resetFields();
           }
         });
