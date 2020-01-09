@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import "./global";
 import "./global.scss";
 import App from "./App";
-import WRedux from "./redux";
+import WRedux from "dva-wyj";
 import toDoList from "./models/toDoList";
 
 const models = [toDoList];
